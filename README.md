@@ -5,3 +5,4 @@ Das Projekt <b>Motion Capture for E Learning</b> wird semesterübergreifend an d
 
 * Lali Nurtaev
 * Tristan Schmele
+* Najla Barkallah
