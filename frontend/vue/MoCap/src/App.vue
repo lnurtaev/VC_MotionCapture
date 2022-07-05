@@ -1,75 +1,50 @@
 <script setup>
 import VideoPlayer from './components/VideoPlayer.vue'
+import Navigation from './components/Navigation.vue'
+import Filesystem from './components/Filesystem.vue';
 </script>
 
 <template>
   <header>
+    <Navigation></Navigation>
   </header>
 
   <main>
-    <VideoPlayer></VideoPlayer>
+    <div class="grid-layout">
+      <div class="box1">
+        <Filesystem></Filesystem>
+      </div>
+      <div class="box2">
+        <VideoPlayer></VideoPlayer>
+      </div>
+    </div>
+    <div class="timeline">
+      Tiemline
+    </div>
   </main>
 </template>
 
 <style>
 @import './assets/base.css';
 
+.grid-layout {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.box1, .box2 {
+margin: 20px;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: 100%;
+}
+
 #app {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2rem;
-
+  padding: 0rem;
   font-weight: normal;
-}
-
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
 }
 </style>
