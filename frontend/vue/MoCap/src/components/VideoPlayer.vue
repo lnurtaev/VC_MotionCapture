@@ -46,7 +46,7 @@ onBeforeUnmount(() => {
   width: 600px;
   height: 400px;
   border: 1px solid var(--kobe);
-  float: right;
+  float: center;
   border-radius: 20px;
 }
 </style>
