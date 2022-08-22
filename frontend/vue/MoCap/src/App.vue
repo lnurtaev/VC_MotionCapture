@@ -1,50 +1,63 @@
 <script setup>
-import VideoPlayer from './components/VideoPlayer.vue'
-import Navigation from './components/Navigation.vue'
-import Filesystem from './components/Filesystem.vue';
+import { RouterLink, RouterView } from "vue-router";
+
 </script>
 
 <template>
   <header>
-    <Navigation></Navigation>
+    <ul class="navigation">
+      <div class="icon">
+        <h2 class="logo"> Mocap</h2>
+      </div>
+      <div class="test">
+        <li class="items">
+          <RouterLink to="/">Kursübersicht</RouterLink>
+        </li>
+        <li class="items">
+          <RouterLink to="/profil">Profil</RouterLink>
+        </li>
+      </div>
+    </ul>
   </header>
-
   <main>
-    <div class="grid-layout">
-      <div class="box1">
-        <Filesystem></Filesystem>
-      </div>
-      <div class="box2">
-        <VideoPlayer></VideoPlayer>
-      </div>
-    </div>
-    <div class="timeline">
-      Tiemline
-    </div>
+    <RouterView />
   </main>
 </template>
 
 <style>
 @import './assets/base.css';
 
-.grid-layout {
-  display: grid;
-  grid-template-columns: 50% 50%;
-}
-
-.box1, .box2 {
-margin: 20px;
-}
-
-.timeline {
-  display: grid;
-  grid-template-columns: 100%;
-}
-
-#app {
+.navigation {
+  background-color: var(--color-background-green);
+  color: white;
   max-width: 100%;
-  margin: 0 auto;
-  padding: 0rem;
-  font-weight: normal;
+  border-radius: 0 0 20px 20px;
+}
+
+li {
+  display: inline-block;
+  padding: 0px 40px 0px 40px;
+  line-height: 3em;
+  height: 3em;
+}
+
+.items a {
+  text-decoration: none;
+  list-style: none;
+  color: white;
+}
+
+li.items :hover {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.test :hover {
+  background-color: var(--seagreen);
+}
+
+.icon {
+  width: 200px;
+  float: left;
 }
 </style>

@@ -8,19 +8,15 @@ let unityComponent = null;
 onMounted(() => {
   if (!unityComponent) {
     unityComponent = new UnityWebgl(canvasRef.value, {
-      //Placeholder Unity Projekt
+      //Unity Projekt Dateien
       loaderUrl:
-        //'https://static-huariot-com.oss-cn-hangzhou.aliyuncs.com/unity/test1/Build/OUT_BIM.loader.js',
-        'src/assets/Build/built-diff.loader.js',
+        'src/assets/Unity/built-diff.loader.js',
       dataUrl:
-        //'https://static-huariot-com.oss-cn-hangzhou.aliyuncs.com/unity/test1/Build/OUT_BIM.data',
-        'src/assets/Build/built-diff.data.gz',
+        'src/assets/Unity/built-diff.data.gz',
       frameworkUrl:
-        //'https://static-huariot-com.oss-cn-hangzhou.aliyuncs.com/unity/test1/Build/OUT_BIM.framework.js',
-        'src/assets/Build/built-diff.framework.js.gz',
+        'src/assets/Unity/built-diff.framework.js.gz',
       codeUrl:
-        //'https://static-huariot-com.oss-cn-hangzhou.aliyuncs.com/unity/test1/Build/OUT_BIM.wasm',
-        'src/assets/Build/built-diff.wasm.gz'
+        'src/assets/Unity/built-diff.wasm.gz'
     });
   }
 });
@@ -33,12 +29,20 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
+<div class="content">
+<button type="button" class="button-back"><RouterLink to="/videos">Zurück</RouterLink></button>
+<div class="kursname">Macarena</div>
   <div class="window">
     <canvas id="canvas" ref="canvasRef" />
+  </div>
   </div>
 </template>
 
 <style lang = "css" scoped>
+.content {
+  margin: 3rem;
+}
+
 #canvas {
   width: 100%;
   height: 100%;
@@ -50,7 +54,25 @@ onBeforeUnmount(() => {
   width: 600px;
   height: 400px;
   border: 1px solid var(--kobe);
-  float: center;
   border-radius: 20px;
+  float: left;
+  position: relative;
+  left: 25%;
+}
+
+.button-back {
+  border-radius: 20px;
+  border: none;
+  background-color: var(--kobe);
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.button-back a {
+  text-decoration: none;
+  color: white;
 }
 </style>
