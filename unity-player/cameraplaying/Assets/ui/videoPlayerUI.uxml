@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/ui/button-style.uss?fileID=7433441132597879392&amp;guid=2b4989a2fba8a7e40be624694c8c0002&amp;type=3#button-style" />
+    <ui:VisualElement name="bg" style="justify-content: flex-end; align-items: stretch; flex-direction: column; flex-grow: 1;">
+        <ui:VisualElement name="playerbar" style="justify-content: flex-start; align-items: center; flex-direction: row; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">
+            <ui:Button text="play" display-tooltip-when-elided="true" name="play-button" class="button-style" />
+            <ui:Button text="stop" display-tooltip-when-elided="true" name="stop-button" class="button-style" style="display: none;" />
+            <ui:VisualElement name="timeline" style="flex-grow: 1;">
+                <ui:Slider picking-mode="Ignore" label="Slider" value="42" high-value="100" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
