@@ -15,14 +15,14 @@ import { RouterLink, RouterView } from "vue-router";
                         <div class="video-titel">
                             <RouterLink to="/player1">Macarena</RouterLink>
                         </div>
-                        <img class="video-foto" src="src\assets\Images\dane-wetton-t1NEMSm1rgI-unsplash.jpg">
+                        <img class="video-foto" src="\src\assets\Images\macarena.png">
                     </div>
                 </div>
                 <div class="box2">
                     <div class="standard" id="video">
                         <p class="video-laenge">18 Sekunden</p>
-                        <div class="video-titel">Ymca</div>
-                        <img class="video-foto" src="src\assets\Images\allef-vinicius-onGipw1rkPU-unsplash (1).jpg">
+                        <div class="video-titel"><RouterLink to="/player2">Ymca</RouterLink></div>
+                        <img class="video-foto" src="\src\assets\Images\ymca.png">
                     </div>
                 </div>
             

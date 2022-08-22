@@ -10,13 +10,13 @@ onMounted(() => {
     unityComponent = new UnityWebgl(canvasRef.value, {
       //Unity Projekt Dateien
       loaderUrl:
-        'src/assets/Unity/built-diff.loader.js',
+        'src/assets/Unity/Build_Macarena/build-macarena.loader.js',
       dataUrl:
-        'src/assets/Unity/built-diff.data.gz',
+        'src/assets/Unity/Build_Macarena/build-macarena.data.gz',
       frameworkUrl:
-        'src/assets/Unity/built-diff.framework.js.gz',
+        'src/assets/Unity/Build_Macarena/build-macarena.framework.js.gz',
       codeUrl:
-        'src/assets/Unity/built-diff.wasm.gz'
+        'src/assets/Unity/Build_Macarena/build-macarena.wasm.gz'
     });
   }
 });
