@@ -10,13 +10,17 @@ onMounted(() => {
     unityComponent = new UnityWebgl(canvasRef.value, {
       //Placeholder Unity Projekt
       loaderUrl:
-        'https://static-huariot-com.oss-cn-hangzhou.aliyuncs.com/unity/test1/Build/OUT_BIM.loader.js',
+        //'https://static-huariot-com.oss-cn-hangzhou.aliyuncs.com/unity/test1/Build/OUT_BIM.loader.js',
+        'src/assets/Build/built-diff.loader.js',
       dataUrl:
-        'https://static-huariot-com.oss-cn-hangzhou.aliyuncs.com/unity/test1/Build/OUT_BIM.data',
+        //'https://static-huariot-com.oss-cn-hangzhou.aliyuncs.com/unity/test1/Build/OUT_BIM.data',
+        'src/assets/Build/built-diff.data.gz',
       frameworkUrl:
-        'https://static-huariot-com.oss-cn-hangzhou.aliyuncs.com/unity/test1/Build/OUT_BIM.framework.js',
+        //'https://static-huariot-com.oss-cn-hangzhou.aliyuncs.com/unity/test1/Build/OUT_BIM.framework.js',
+        'src/assets/Build/built-diff.framework.js.gz',
       codeUrl:
-        'https://static-huariot-com.oss-cn-hangzhou.aliyuncs.com/unity/test1/Build/OUT_BIM.wasm',
+        //'https://static-huariot-com.oss-cn-hangzhou.aliyuncs.com/unity/test1/Build/OUT_BIM.wasm',
+        'src/assets/Build/built-diff.wasm.gz'
     });
   }
 });

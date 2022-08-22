@@ -1,6 +1,6 @@
-<template>
+<!--<template>
     <div class="files">
-        <!--<p class="has-placeholder">Placeholder</p>-->
+        HIER<p class="has-placeholder">Placeholder</p>
         <div class="has-placeholder" v-for="obj in Obj">
         <p>Placeholder {{obj.name}}</p>
     </div>
@@ -39,3 +39,50 @@ margin: 30px;
 }
 
 </style>
+-->
+<template>
+<div id='file'>
+ 
+  <!-- Select All records -->
+  <input type='button' @click='allRecords()' value='Select All users'>
+  <br><br>
+
+  <!-- List records -->
+  <table border='1' width='80%' style='border-collapse: collapse;'>
+    <tr>
+      <th>Kursid</th>
+      <th>Name</th>
+      <th>Bild</th>
+    </tr>
+
+    <tr v-for='kurs in kurse'>
+      <td>{{ kurs.kurs_id }}</td>
+      <td>{{ kurs.kurs_name }}</td>
+      <td>{{ kurs.kurs_bild }}</td>
+    </tr>
+  </table>
+ 
+</div>
+</template>
+
+<script>
+var app = new Vue({
+  el: 'file',
+  data: {
+    kurse: "",
+  },
+  methods: {
+    allRecords: function(){
+
+      axios.get('./../../../../backend/ajaxfile.php')
+      .then(function (response) {
+         app.kurse = response.data;
+      })
+      .catch(function (error) {
+         console.log(error);
+      });
+    }
+  }
+})
+    </script>
+
