@@ -15,6 +15,7 @@ Das Projekt <b>Motion Capture for E Learning</b> wird semesterübergreifend an d
 * branch: feature/unity-webgl-plugin: Frontend in Vue (übernommen)
 * branch: setup: erste Version - Datenbank in couchdb (verworfen) + Frontendin Vue (übernommen für feature/unity-webgl-plugin)
 * Ordner: MotionCapture_Aufnahmen: Aufnahmen aus dem Studio als bvh + bvh bereinigt + Avatar als fbx (nicht übernommen)
+* branch: node_sql: sql Datenbank, auf die man mit node express Zugriff hat (verworfen, da Probleme mit BLOB Dateien und Pfadverweis für Unity Build Dateien)
 
 
 ### zum Starten:
