@@ -8,10 +8,12 @@ public class UIController : MonoBehaviour
 {
 
     public Button playButton;
-    public Button stopButton;
+    public Button speedButton;
     public Slider timeline;
 
     private float oldTime;
+    private int speedState = 0;
+    private float playbackSpeed = 1f;
 
     [SerializeField]
     Animator animator = default;
@@ -25,16 +27,12 @@ public class UIController : MonoBehaviour
         var root = GetComponent<UIDocument>().rootVisualElement;
 
         playButton = root.Q<Button>("play-button");
-        stopButton = root.Q<Button>("stop-button");
+        speedButton = root.Q<Button>("speed-button");
         timeline = root.Q<Slider>();
-        
+
         playButton.clicked += PlayButtonPressed;
-        //stopButton.clicked += StopButtonPressed;
+        speedButton.clicked += SpeedButtonPressed;
 
-        // TODO add slowmo
-
-        timeline.RegisterCallback<ClickEvent>(TimelinePressed);
-        
 
         timeline.value = 0;
         timeline.highValue = animator.GetCurrentAnimatorStateInfo(0).length;
@@ -42,10 +40,6 @@ public class UIController : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    private void TimelinePressed(ClickEvent evt)
-    {
-        Debug.Log("TimelinePressed");
-    }
 
     private void Update()
     {
@@ -53,16 +47,17 @@ public class UIController : MonoBehaviour
         {
             float normTime = timeline.value / timeline.highValue;
             animator.Play("Macarena Dance", 0, normTime);
-        } else
+        }
+        else
         {
             timeline.value = animator.GetCurrentAnimatorStateInfo(0).normalizedTime * timeline.highValue;
         }
         timeline.label = convertToTimestamp(timeline.value.ToString()) + " / " + convertToTimestamp(timeline.highValue.ToString());
-        
+
         oldTime = timeline.value;
     }
 
-    private string convertToTimestamp (string timeValue)
+    private string convertToTimestamp(string timeValue)
     {
         string timeStamp = "";
         string[] values = timeValue.Split(',', 2);
@@ -81,22 +76,17 @@ public class UIController : MonoBehaviour
             else
                 timeStamp += "0" + min + ":0" + sec;
 
-        } else
+        }
+        else
         {
             timeStamp += "00:" + values[0];
         }
 
-
-        /* // wie detailiert sollte der timestamp sein ?
-         * 
-         * int milsec;
-         * System.Int32.TryParse(values[1], out milsec);
-         */
-
         return timeStamp;
     }
 
-    void PlayButtonPressed ()
+    // play - pause the clip
+    void PlayButtonPressed()
     {
         animator.SetBool("isMacing", true);
         switch (playing)
@@ -107,27 +97,40 @@ public class UIController : MonoBehaviour
                 playButton.text = "play";
                 break;
             case false:
-                Time.timeScale = 1;
+                Time.timeScale = playbackSpeed;
                 playing = true;
                 playButton.text = "pause";
                 break;
         }
-        
+
     }
 
-    /*
-    void StopButtonPressed ()
-    {s
-        animator.SetBool("isMacing", false);
-        Time.timeScale = 1;
-        playing = false;
-        playButton.text = "play";
-    }
-    */
-
-    void TimelinePressed ()
+    // change replay speed
+    void SpeedButtonPressed()
     {
-        float normTime = timeline.value / timeline.highValue;
-        animator.Play("Macarena Dance", 0, normTime);
+        switch (speedState)
+        {
+            case 0:
+                playbackSpeed = .5f;
+                speedButton.text = "0.5x";
+                speedState = 1;
+                break;
+            case 1:
+                playbackSpeed = .25f;
+                speedButton.text = "0.25x";
+                speedState = 2;
+                break;
+            case 2:
+                playbackSpeed = 1f;
+                speedButton.text = "1x";
+                speedState = 0;
+                break;
+            default:
+                break;
+        }
+
+        if (Time.timeScale != 0)
+            Time.timeScale = playbackSpeed;
     }
+
 }

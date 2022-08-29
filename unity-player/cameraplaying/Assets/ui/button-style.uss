@@ -19,6 +19,7 @@
     padding-right: 0;
     padding-top: 0;
     padding-bottom: 0;
+    font-size: 12px;
 }
 
 .button-style:hover {
@@ -42,6 +43,7 @@
     padding-right: 0;
     padding-top: 0;
     padding-bottom: 0;
+    font-size: 12px;
 }
 
 .button-style:active {
@@ -65,4 +67,5 @@
     padding-right: 0;
     padding-top: 0;
     padding-bottom: 0;
+    font-size: 12px;
 }
