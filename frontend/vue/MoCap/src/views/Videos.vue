@@ -5,27 +5,40 @@ import { RouterLink, RouterView } from "vue-router";
 
 <template>
     <div class="videos">
-        <button type="button" class="button-back"><RouterLink to="/">Zurück</RouterLink></button>
-        <div class="kursname">Motion Capture</div>
-        <div class="kurslaenge">In diesem Kurs finden Sie interaktive Videos, die Bewegungen über einen Avatar darstellen. Sie haben die Möglichkeit die einzelnen Videos zu pausieren und die Kamerasteuerung zu übernehmen.</div>
-            <div class="wrapper">
-                <div class="box1">
-                    <div class="video_macarena" id="video">
-                        <p class="video-laenge">20 Sekunden</p>
-                        <div class="video-titel">
-                            <RouterLink to="/player1">Macarena</RouterLink>
+        <RouterLink to="/"><button type="button" class="button-back">Zur Kursübersicht</button></RouterLink>
+        <h1>Motion Capture</h1>
+        <div class="kurslaenge">In diesem Kurs finden Sie interaktive Videos, die Bewegungen über einen Avatar
+            darstellen. Sie haben die Möglichkeit die einzelnen Videos zu pausieren und die Kamerasteuerung zu
+            übernehmen.</div>
+        <div class="wrapper">
+            <div class="box1">
+                <div class="video_macarena" id="video">
+                    <div class="video-header"><img class="video-foto" src="\src\assets\Images\macarena.png"></div>
+                    <div class="video-content">
+                        <h2>Macarena</h2>
+                        <p>In dem Video wird der Tanz Macarena vorgeführt.</p>
+                        <div class="icons">
+                            <p><span class="material-symbols-outlined">schedule</span>20 Sekunden</p>
                         </div>
-                        <img class="video-foto" src="\src\assets\Images\macarena.png">
+                        <RouterLink to="/player1"><button class="btn-enabled">Zum Video</button></RouterLink>
+                </div>
+                </div>
+            </div>
+            <div class="box2">
+                <div class="standard" id="video">
+                    <div class="video-header"><img class="video-foto" src="\src\assets\Images\ymca.png"></div>
+                    <div class="video-content">
+                        <h2>
+                            YMCA
+                        </h2>
+                        <p>In dem Video wird der Tanz YMCA vorgeführt.</p>
+                        <div class="icons">
+                            <p><span class="material-symbols-outlined">schedule</span>18 Sekunden</p>
+                        </div>
+                        <RouterLink to="/player2"><button class="btn-enabled">Zum Video</button></RouterLink>
                     </div>
                 </div>
-                <div class="box2">
-                    <div class="standard" id="video">
-                        <p class="video-laenge">18 Sekunden</p>
-                        <div class="video-titel"><RouterLink to="/player2">Ymca</RouterLink></div>
-                        <img class="video-foto" src="\src\assets\Images\ymca.png">
-                    </div>
-                </div>
-            
+            </div>
         </div>
     </div>
 
@@ -45,7 +58,6 @@ import { RouterLink, RouterView } from "vue-router";
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 550px;
-
 }
 
 .box1,
@@ -55,64 +67,100 @@ import { RouterLink, RouterView } from "vue-router";
     padding: 2rem;
 }
 
+
+
 #video {
-    background-color: var(--color-background-green);
-    color: var(--white);
+    background-color: var(--surface-variant);
+    color: var(--black);
     border-radius: 32px;
-    cursor: pointer;
     overflow: hidden;
-    height: 329px;
+    height: 450px;
     width: 446px;
 }
 
-.video-laenge {
-    height: auto;
-    left: 9px;
-    line-height: normal;
+#video:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, .2);
+    top: -5;
+}
+
+#video:before {
+    content: "";
     position: absolute;
-    text-align: left;
-    top: 300px;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    border-radius: 32px;
+    transform: scale(2);
+    transform-origin: 50% 50%;
+    transition: transform 0.15s ease-out;
 }
 
-.video-titel {
-    left: 6px;
-    top: 272px;
-    font-size: 20px;
+#video:hover:before {
+    transform: scale(2.15);
 }
 
-.video-titel a {
-    text-decoration: none;
-    color: var(--white);
+.video-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
 
+.video-content p {
+    margin: 0 0 4px;
+}
+
+span {
+    margin-right: 16px;
+    color: var(--secondary);
+}
+
+.btn-enabled:hover {
+    background-color: var(--primary-70);
+    box-shadow: 0px 2px 4px var(--primary);
+    border-color: var(--primary);
+    border: 2px;
 }
 
 .video-foto {
     height: 260px;
-    left: -72px;
+    width: 100% !important;
     object-fit: cover;
-    position: absolute;
-    top: 0px;
-    width: 600px;
+    width: 500px;
 }
 
-.kursname {
-    font-size: 40px;
-    text-align: center;
-    color: var(--cyan);
+
+
+h2, h1 {
+    width: 100%;
+    text-align:center;
 }
+
 .button-back {
-  border-radius: 20px;
-  border: none;
-  background-color: var(--kobe);
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+    border-radius: 50px;
+    border: none;
+    background-color: var(--secondary);
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
+
 .button-back a {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: white;
 }
+
+.button-back:hover {
+    background-color: var(--secondary-70);
+    box-shadow: 0px 2px 4px var(--secondary);
+    border-color: var(--secondary);
+    color: var(--black);
+    border: 2px;
+}
+
 </style>

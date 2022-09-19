@@ -10,13 +10,13 @@ onMounted(() => {
     unityComponent = new UnityWebgl(canvasRef.value, {
       //Unity Projekt Dateien
       loaderUrl:
-        'src/assets/Unity/Build_Ymca/build-ymca.loader.js',
+        'src/assets/Unity/Build_Ymca/v2/build-ymca.loader.js',
       dataUrl:
-        'src/assets/Unity/Build_Ymca/build-ymca.data.gz',
+        'src/assets/Unity/Build_Ymca/v2/build-ymca.data.gz',
       frameworkUrl:
-        'src/assets/Unity/Build_Ymca/build-ymca.framework.js.gz',
+        'src/assets/Unity/Build_Ymca/v2/build-ymca.framework.js.gz',
       codeUrl:
-        'src/assets/Unity/Build_Ymca/build-ymca.wasm.gz'
+        'src/assets/Unity/Build_Ymca/v2/build-ymca.wasm.gz'
     });
   }
 });
@@ -30,8 +30,8 @@ onBeforeUnmount(() => {
 
 <template>
 <div class="content">
-<button type="button" class="button-back"><RouterLink to="/videos">Zurück</RouterLink></button>
-<div class="kursname">Ymca</div>
+  <RouterLink to="/videos"><button type="button" class="button-back">Zur Videoübersicht</button></RouterLink>
+<h1>YMCA</h1>
   <div class="window">
     <canvas id="canvas" ref="canvasRef" />
   </div>
@@ -51,28 +51,50 @@ onBeforeUnmount(() => {
 
 .window {
   margin: 30px;
-  width: 600px;
-  height: 400px;
+  width: 800px;
+  height: 550px;
   border: 1px solid var(--kobe);
   border-radius: 20px;
-  float: left;
   position: relative;
-  left: 25%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.button-back {
-  border-radius: 20px;
-  border: none;
-  background-color: var(--kobe);
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+@media (max-width: 1200px) {
+    .window {
+        width: 600px;
+        height: 100%;
+    }
 }
+@media (max-width: 800px) {
+    .window {
+        width: 400px;
+        height: 100%;
+    }
+}
+.button-back {
+    border-radius: 50px;
+    border: none;
+    background-color: var(--secondary);
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
 .button-back a {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: white;
+}
+
+.button-back:hover {
+    background-color: var(--secondary-70);
+    box-shadow: 0px 2px 4px var(--secondary);
+    border-color: var(--secondary);
+    color: var(--black);
+    border: 2px;
 }
 </style>

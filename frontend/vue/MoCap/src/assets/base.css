@@ -1,21 +1,27 @@
 /* color palette from <https://github.com/vuejs/theme> */
-:root {
-  --cyan: #156B64;
-  --kobe: #8C2A13;
-  --white: #FFFFFF;
-  --almond: #ECE2D0;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
 
-  --rose: #A26769;
-  --venetian: #F4DBD8;
-  --seagreen: #10B4A6;
+:root {
+  --primary: #156B64;
+  --primary-20: #003733;
+  --primary-70: #27BFB3;
+  --secondary: #4A6360;
+  --secondary-70: #96B1AC;
+  --tertiary: #47617A;
+  --neutral: #5B5F5E;
+  --neutral-variant: #56605F;
+  --surface-variant: #DEE4E2;
+
+  --white: #FFFFFF;
   --black: #000000;
 }
 
 /* semantic color variables for this project */
 :root {
   --color-background: var(--white);
-  --color-background-green: var(--cyan);
-  --color-background-almond: var(--almond);
+  --color-background-green: var(--primary);
+  --color-background-surface-variant: var(--surface-variant);
 
   --color-border: var(--vt-c-divider-light-2);
   --color-border-hover: var(--vt-c-divider-light-1);
@@ -37,15 +43,51 @@
 }
 
 body {
-  min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background);
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: 'Open Sans', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+h1 {
+  color: var(--primary);
+}
+
+
+
+/* responsive 
+@media screen and (max-width: 677px) {
+  .content {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .content {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .content {
+    width: 750px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .content {
+    width: 960px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .content {
+    width: 1170px;
+  }
+  
+}*/

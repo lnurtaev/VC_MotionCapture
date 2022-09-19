@@ -1,5 +1,8 @@
 <template>
-  <main>Profil</main>
+  <main>
+    <h1>
+    Profil
+  </h1></main>
 </template>
 
 <script>
